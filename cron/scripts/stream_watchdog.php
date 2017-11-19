@@ -6,6 +6,7 @@ $xml_string = simplexml_load_file($streams_file);
 
 foreach($xml_string->stream as $stream){
     $stream_id = $stream["id"];
+    $stream_enable = $stream->{"stream_enable"};
     $channel_name = $stream->channel_name;
     $input_url = $stream->input_url;
     $output_url = $stream->output_url;
@@ -62,10 +63,14 @@ foreach($xml_string->stream as $stream){
 
 $stream_proces_status = exec("ps aux |grep ffmpeg |grep -v grep | wc -l");
 if($stream_proces_status == "0"){
-    echo "Starting stream... \n";
-    exec("$ffmpeg_cmd > /dev/null 2>&1 < /dev/null &");
+    if($stream_enable == "on"){
+        echo "Starting stream... \n";
+        exec("sudo $ffmpeg_cmd > /dev/null 2>&1 < /dev/null &");
+    }
 }else{
-    echo "Stream running... \n";
+    if($stream_enable == ""){
+        exec("killall -9 ffmpeg");
+    }
 }
 
 
