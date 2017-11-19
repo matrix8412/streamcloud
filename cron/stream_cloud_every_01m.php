@@ -2,8 +2,8 @@
 exec("sudo mkdir -p /run/streamcloud_files");
 exec("sudo mkdir -p /run/streamcloud_files/xml");
 
-exec("sudo php /opt/streamcloud/cron/scripts/get_streams.php");
-exec("sudo php /opt/streamcloud/cron/scripts/stream_watchdog.php");
+exec("php /opt/streamcloud/cron/scripts/get_streams.php");
+exec("php /opt/streamcloud/cron/scripts/stream_watchdog.php");
 
 $hardware = exec("cat /proc/cpuinfo | grep Hardware | awk '{print $3}'");
 $revision = exec("cat /proc/cpuinfo | grep Revision | awk '{print $3}'");
