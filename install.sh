@@ -1,8 +1,9 @@
 #!/bin/sh
 
-mkdir -p opt/streamcloud/packages
-mkdir -p /opt/streamcloud/cron/scripts
 mkdir -p /opt/streamcloud/sources
+
+sudo cp /opt/streamcloud/cron_streamcloud /etc/cron.d/
+sudo service cron restart;
 
 sudo apt-get update;
 sudo apt-get -y upgrade;
