@@ -6,6 +6,7 @@ mkdir -p /var/www/html/config
 
 sudo cp /opt/streamcloud/cron_streamcloud /etc/cron.d/
 sudo cp /opt/streamcloud/web/* /var/www/html/
+rm /var/www/html/index.html
 chown -R www-data:www-data /var/www/html/*
 
 sudo service cron restart;
