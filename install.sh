@@ -16,7 +16,7 @@ sudo git clone https://github.com/FFmpeg/FFmpeg.git /opt/streamcloud/sources/ffm
 
 cd /opt/streamcloud/sources/ffmpeg
 
-sudo ./configure --arch=armel --target-os=linux --enable-gpl --enable-mmal --enable-omx --enable-omx-rpi --enable-libfdk-aac --enable-libmp3lame --enable-libx264 --enable-libx265 --enable-libopus --enable-libvpx --enable-libfreetype --enable-libass --enable-libtheora --enable-libvorbis --enable-nonfree;
-sudo make -j4;
-sudo make install;
+#sudo ./configure --arch=armel --target-os=linux --enable-gpl --enable-mmal --enable-omx --enable-omx-rpi --enable-libfdk-aac --enable-libmp3lame --enable-libx264 --enable-libx265 --enable-libopus --enable-libvpx --enable-libfreetype --enable-libass --enable-libtheora --enable-libvorbis --enable-nonfree;
+#sudo make -j4;
+#sudo make install;
 
