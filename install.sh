@@ -6,8 +6,8 @@ mkdir -p /var/www/html/config
 
 sudo cp /opt/streamcloud/cron_streamcloud /etc/cron.d/
 sudo cp /opt/streamcloud/web/* /var/www/html/
-rm /var/www/html/index.html
-chown -R www-data:www-data /var/www/html/*
+sudo rm /var/www/html/index.html
+sudo chown -R www-data:www-data /var/www/html/*
 
 sudo service cron restart;
 
@@ -18,6 +18,8 @@ sudo apt-get install autoconf automake build-essential cmake git libass-dev libf
 sudo apt-get install yasm -y;
 sudo apt-get install libomxil-bellagio-dev libmp3lame-dev libvpx-dev libopus-dev libx264-dev libx265-dev libfdk-aac-dev -y;
 wget -O /opt/streamcloud/packages/libfdk-aac.deb https://streamcloud.homepi.org/packages/fdk-aac_201706131805-git-1_armhf.deb
+
+sudo service apache2 restart;
 
 #sudo git clone https://github.com/FFmpeg/FFmpeg.git /opt/streamcloud/sources/ffmpeg;
 
