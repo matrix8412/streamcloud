@@ -2,6 +2,7 @@
 
 mkdir -p /opt/streamcloud/sources
 mkdir -p /opt/streamcloud/packages
+mkdir -p /var/www/html/config
 
 sudo cp /opt/streamcloud/cron_streamcloud /etc/cron.d/
 sudo service cron restart;
