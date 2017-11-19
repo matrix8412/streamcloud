@@ -19,4 +19,3 @@ sudo ./configure --arch=armel --target-os=linux --enable-gpl --enable-mmal --ena
 sudo make -j4;
 sudo make install;
 
-git clone https://github.com/matrix8412/streamcloud.git /opt/streamcloud
