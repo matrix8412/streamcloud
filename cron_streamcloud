@@ -1,5 +1,5 @@
 */1 * * * * root php /opt/streamcloud/cron/stream_cloud_01m.php > /dev/null 2>&1 < /dev/null &
-*/5 * * * * root php /opt/streamcloud/cron/stream_cloud_5m.php > /dev/null 2>&1 < /dev/null &
+*/5 * * * * root php /opt/streamcloud/cron/stream_cloud_05m.php > /dev/null 2>&1 < /dev/null &
 */15 * * * * root php /opt/streamcloud/cron/stream_cloud_15m.php > /dev/null 2>&1 < /dev/null &
 */30 * * * * root php /opt/streamcloud/cron/stream_cloud_30m.php > /dev/null 2>&1 < /dev/null &
 * */1 * * * root php /opt/streamcloud/cron/stream_cloud_01h.php > /dev/null 2>&1 < /dev/null &
