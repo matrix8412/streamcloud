@@ -1,17 +1,20 @@
 #!/bin/sh
 
-mkdir /tmp/streamcloud/packages
-
-sudo wget -O /tmp/streamcloud/packages/fdk-aac.deb https://streamcloud.homepi.org/packages/fdk-aac_201706131805-git-1_armhf.deb
+mkdir -p opt/streamcloud/packages
+mkdir -p /opt/streamcloud/cron/scripts
+mkdir -p /opt/streamcloud/sources
 
 sudo apt-get update;
-sudo apt-get upgrade;
-sudo apt-get git htop iftop mc;
-sudo apt-get install libomxil-bellagio-dev 
-sudo dpkg -i /tmp/streamcloud/packages/fdk-aac.deb;
+sudo apt-get -y upgrade;
+sudo apt-get -y git htop iftop mc;
+sudo apt-get -y install autoconf automake build-essential cmake git libass-dev libfreetype6-dev libsdl2-dev libtheora-dev libtool libva-dev libvdpau-dev libvorbis-dev libxcb1-dev libxcb-shm0-dev libxcb-xfixes0-dev mercurial pkg-config texinfo wget zlib1g-dev;
+sudo apt-get -y install yasm;
+sudo apt-get -y install libomxil-bellagio-dev libmp3lame-dev libvpx-dev libopus-dev libx264-dev libx265-dev libfdk-aac-dev;
 
-sudo git clone https://github.com/FFmpeg/FFmpeg.git /tmp/streamcloud/ffmpeg;
+sudo git clone https://github.com/FFmpeg/FFmpeg.git /opt/streamcloud/sources/ffmpeg;
 
-cd /tmp/streamcloud/ffmpeg
+cd /opt/streamcloud/sources/ffmpeg
 
-sudo ./configure --arch=armel --target-os=linux --enable-gpl --enable-omx --enable-omx-rpi --enable-libfdk-aac --enable-nonfree
+sudo ./configure --arch=armel --target-os=linux --enable-gpl --enable-mmal --enable-omx --enable-omx-rpi --enable-libfdk-aac --enable-libmp3lame --enable-libx264 --enable-libx265 --enable-libopus --enable-libvpx --enable-libfreetype --enable-libass --enable-libtheora --enable-libvorbis --enable-nonfree;
+sudo make -j4;
+sudo make install;
