@@ -12,9 +12,9 @@ sudo apt-get -y install autoconf automake build-essential cmake git libass-dev l
 sudo apt-get -y install yasm;
 sudo apt-get -y install libomxil-bellagio-dev libmp3lame-dev libvpx-dev libopus-dev libx264-dev libx265-dev libfdk-aac-dev;
 
-sudo git clone https://github.com/FFmpeg/FFmpeg.git /opt/streamcloud/sources/ffmpeg;
+#sudo git clone https://github.com/FFmpeg/FFmpeg.git /opt/streamcloud/sources/ffmpeg;
 
-cd /opt/streamcloud/sources/ffmpeg
+#cd /opt/streamcloud/sources/ffmpeg
 
 #sudo ./configure --arch=armel --target-os=linux --enable-gpl --enable-mmal --enable-omx --enable-omx-rpi --enable-libfdk-aac --enable-libmp3lame --enable-libx264 --enable-libx265 --enable-libopus --enable-libvpx --enable-libfreetype --enable-libass --enable-libtheora --enable-libvorbis --enable-nonfree;
 #sudo make -j4;
