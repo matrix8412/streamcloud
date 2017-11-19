@@ -8,7 +8,7 @@ sudo service cron restart;
 
 sudo apt-get update;
 sudo apt-get -y upgrade;
-sudo apt-get -y git htop iftop mc;
+sudo apt-get -y git htop iftop mc apache2 php libapache2-mod-php;
 sudo apt-get -y install autoconf automake build-essential cmake git libass-dev libfreetype6-dev libsdl2-dev libtheora-dev libtool libva-dev libvdpau-dev libvorbis-dev libxcb1-dev libxcb-shm0-dev libxcb-xfixes0-dev mercurial pkg-config texinfo wget zlib1g-dev;
 sudo apt-get -y install yasm;
 sudo apt-get -y install libomxil-bellagio-dev libmp3lame-dev libvpx-dev libopus-dev libx264-dev libx265-dev libfdk-aac-dev;
