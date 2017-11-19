@@ -24,7 +24,7 @@ $load_average5 = $load_average[1];
 $load_average15 = $load_average[2];
 
 $uptime = explode(" ", exec("cat /proc/uptime"));
-$uptime = $uptime[1];
+$uptime = $uptime[0];
 
 
 $dir_net = "/sys/class/net";
