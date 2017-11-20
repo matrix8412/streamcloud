@@ -28,7 +28,8 @@ foreach($xml_string->stream as $stream){
     $audio_channels = $stream->audio_parameters->audio_channels;
     $audio_samplerate = $stream->audio_parameters->audio_sample_rate;
 
-
+    if($input_video_decoder != ""){$ff_input_video_decoder = "-vcodec \"".$input_video_decoder."\"";}else{$ff_input_video_decoder = "";}
+    
     if($video_codec != "copy"){$ff_video_codec = " -vcodec \"$video_codec\"";}else{$ff_video_codec = " -vcodec \"copy\"";}
     if($video_bitrate != "0"){$ff_video_bitrate = " -b:v \"".$video_bitrate."k\"";}else{$ff_video_bitrate = "";}
     if($video_min_bitrate != "0"){$ff_video_min_bitrate = " -minrate \"".$video_min_bitrate."k\"";}else{$ff_video_min_bitrate = "";}
@@ -58,7 +59,7 @@ foreach($xml_string->stream as $stream){
 
 
 
-    $ffmpeg_cmd = "ffmpeg -i \"".$input_url."\"".$ff_video_parameters.$ff_audio_parameters.$ff_channel_parameters." ".$output_url;
+    $ffmpeg_cmd = "ffmpeg ".ff_input_video_decoder." -i \"".$input_url."\"".$ff_video_parameters.$ff_audio_parameters.$ff_channel_parameters." ".$output_url;
 }
 
 $stream_proces_status = exec("ps aux |grep ffmpeg |grep -v grep | wc -l");
