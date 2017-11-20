@@ -35,8 +35,8 @@ foreach($xml_string->stream as $stream){
     if($video_min_bitrate != "0"){$ff_video_min_bitrate = " -minrate \"".$video_min_bitrate."k\"";}else{$ff_video_min_bitrate = "";}
     if($video_max_bitrate != "0"){$ff_video_max_bitrate = " -maxrate \"".$video_max_bitrate."k\"";}else{$ff_video_max_bitrate = "";}
     if($video_buffer_size != "0"){$ff_video_buffer_size = " -bufsize \"".$video_buffer_size."k\"";}else{$ff_video_buffer_size = "";}
-    if($video_profile != "0"){$ff_video_profile = " -profile:v \"".$video_profile."\"";}else{$ff_video_profile = "";}
-    if($video_level != "0"){$ff_video_level = " -level \"".$video_level."\"";}else{$ff_video_level = "";}
+    if($video_profile != ""){$ff_video_profile = " -profile:v \"".$video_profile."\"";}else{$ff_video_profile = "";}
+    if($video_level != ""){$ff_video_level = " -level \"".$video_level."\"";}else{$ff_video_level = "";}
 
     $ff_video_parameters = $ff_video_codec.$ff_video_bitrate.$ff_video_min_bitrate.$ff_video_max_bitrate.$ff_video_buffer_size.$ff_video_profile.$ff_video_level;
 
@@ -59,7 +59,7 @@ foreach($xml_string->stream as $stream){
 
 
 
-    $ffmpeg_cmd = "ffmpeg ".$ff_input_video_decoder." -i \"".$input_url."\"".$ff_video_parameters.$ff_audio_parameters.$ff_channel_parameters." ".$output_url;
+    $ffmpeg_cmd = "ffmpeg ".$ff_input_video_decoder." -i \"".$input_url."\"".$ff_video_parameters." -x264-params=\"nal-hrd=cbr\"".$ff_audio_parameters.$ff_channel_parameters." -copyts ".$output_url;
 }
 
 $stream_proces_status = exec("ps aux |grep ffmpeg |grep -v grep | wc -l");
