@@ -59,7 +59,7 @@ foreach($xml_string->stream as $stream){
 
 
 
-    $ffmpeg_cmd = "ffmpeg ".$ff_input_video_decoder." -i \"".$input_url."\"".$ff_video_parameters." -x264-params=\"nal-hrd=cbr\"".$ff_audio_parameters.$ff_channel_parameters." -copyts ".$output_url;
+    $ffmpeg_cmd = "ffmpeg ".$ff_input_video_decoder." -i \"".$input_url."\"".$ff_video_parameters." -x264-params=\"nal-hrd=cbr\" -preset ultrafast ".$ff_audio_parameters.$ff_channel_parameters." -copyts ".$output_url;
 }
 
 $stream_proces_status = exec("ps aux |grep ffmpeg |grep -v grep | wc -l");
